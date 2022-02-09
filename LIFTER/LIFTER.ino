@@ -3,7 +3,7 @@
 #define LIFTER_PIN 7
 #define LIFTER_ANGLE 100   //90 degrees max
 #define LIFTER_SPEED  1  //milliseconds
-#define DELAY 1000
+#define DELAY 100
 
 #include "Adafruit_APDS9960.h"
 Adafruit_APDS9960 apds;
