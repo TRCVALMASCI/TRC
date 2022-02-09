@@ -1,10 +1,10 @@
 #include <Adafruit_NeoPixel.h>
 #define LED_PIN 10
-
 #define LED_COUNT 1
+#define DELAY 500
 
 Adafruit_NeoPixel pixels(LED_COUNT, LED_PIN, NEO_GRB + NEO_KHZ800);
-#define DELAYVAL 500
+
 
 void setup() {
   pixels.begin();
@@ -12,18 +12,14 @@ void setup() {
 }
 
 void loop() {
-  pixels.clear();
-  pixels.setPixelColor(0, pixels.Color(255, 0, 0));
-  pixels.show();
-  delay(DELAYVAL);
-  pixels.setPixelColor(0, pixels.Color(0, 128, 0));
-  pixels.show();
-  delay(DELAYVAL);
-  pixels.setPixelColor(0, pixels.Color(0, 0, 255));
-  pixels.show();
-  delay(DELAYVAL);
-  pixels.setPixelColor(0, pixels.Color(255, 255, 255));
-  pixels.show();
-  delay(DELAYVAL);
+  LED(255, 0, 0);
+  LED(0, 255, 0);
+  LED(0, 0, 255);
+  LED(255, 255, 255);  
+}
 
+void LED(int RED, int BLUE, int GREEN){
+  pixels.setPixelColor(0, pixels.Color(RED, BLUE, GREEN));
+  pixels.show();
+  delay(DELAY);
 }
