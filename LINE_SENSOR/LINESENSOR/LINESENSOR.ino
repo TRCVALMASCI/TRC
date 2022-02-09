@@ -76,34 +76,11 @@ void setup()
 
 }
 
-void loop()
-{
-  // read calibrated sensor values and obtain a measure of the line position
-  // from 0 to 5000 (for a white line, use readLineWhite() instead)
-  uint16_t position = qtr_front.readLineBlack(sensorValues);
-
-  // print the sensor values as numbers from 0 to 1000, where 0 means maximum
-  // reflectance and 1000 means minimum reflectance, followed by the line
-  // position
-
- 
-  for (uint8_t i = 0; i < SensorCount; i++)
-  {
-    Serial.print(sensorValues[i]);
-    Serial.print('\t');
-  }
-  Serial.println(position);
-
-  delay(250);
+void loop(){  
 }
 
 void calibrate_sensor(QTRSensors &lineSensor)
 {
-  Serial.println("Calibrating . . .");
-  Serial.println("Slowly move the sensor across the electrical tape");
-  // 2.5 ms RC read timeout (default) * 10 reads per calibrate() call
-  // = ~25 ms per calibrate() call.
-  // Call calibrate() 400 times to make calibration take about 10 seconds.
   for (uint16_t i = 0; i < 400; i++)
   {
     lineSensor.calibrate();
@@ -140,6 +117,4 @@ void calibrate_sensor(QTRSensors &lineSensor)
 
   Serial.println();
   Serial.println("Done calibrating!");
-  delay(1000);
-  Serial.println();
 }
