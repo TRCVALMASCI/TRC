@@ -1,3 +1,4 @@
+t
 #include <Wire.h>
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
@@ -5,7 +6,7 @@
 #define scrwid 128
 #define scrhei 64
 #define scradr 0x3C
-#define DELAY 1000
+#define DELAY 100
 
 int i; 
 int x;
@@ -27,8 +28,7 @@ void loop() {
   for(i = 1; i <= 20; i++){
 
     if (i>8){
-      display.clearDisplay();
-      display.setCursor(0, 0);
+      lcdsetup();
         for (x = 7; x > 0; x--) {
         display.println(i-x);
       }
